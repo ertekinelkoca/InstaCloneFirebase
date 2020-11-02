@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,6 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        // Remember Me
+        // The goal to do this is , when user remembered then redirected to do second page
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil {
+            
+            //story board is identified just like variable , it is same for the tabBar below
+            let board = UIStoryboard(name: "Main", bundle: nil)
+            //after this , if user already logged in , then user will be redirected to the tabbar.
+            let tabBar = board.instantiateViewController(identifier: "tabBar") as! UITabBarController
+            
+            window?.rootViewController = tabBar
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
