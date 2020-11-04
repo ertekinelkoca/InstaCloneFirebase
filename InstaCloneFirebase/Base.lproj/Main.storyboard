@@ -89,14 +89,58 @@
                     <view key="view" contentMode="scaleToFill" id="PzT-Qy-xMI" customClass="UploadViewcon">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clickimage" translatesAutoresizingMaskIntoConstraints="NO" id="kHA-6Q-S13">
+                                <rect key="frame" x="62" y="153" width="290" height="215"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-f0-QTA">
+                                <rect key="frame" x="62" y="463" width="290" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="RUz-yn-LGn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ex2-wa-elS">
+                                <rect key="frame" x="141" y="547" width="133" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="irT-3x-1vj"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="actionButtonClicked:" destination="egA-l6-YT9" eventType="touchUpInside" id="q2c-HJ-aKV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="TmW-Eb-xz2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ex2-wa-elS" firstAttribute="leading" secondItem="TmW-Eb-xz2" secondAttribute="leading" constant="141" id="18L-5u-tsk"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="top" secondItem="TmW-Eb-xz2" secondAttribute="top" constant="109" id="2yp-NE-ONf"/>
+                            <constraint firstItem="OoP-f0-QTA" firstAttribute="centerX" secondItem="ex2-wa-elS" secondAttribute="centerX" id="4R6-KE-BQ5"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="centerX" secondItem="PzT-Qy-xMI" secondAttribute="centerX" id="70h-Co-KXP"/>
+                            <constraint firstItem="ex2-wa-elS" firstAttribute="top" secondItem="OoP-f0-QTA" secondAttribute="bottom" constant="50" id="7Om-ml-3Om"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="top" secondItem="TmW-Eb-xz2" secondAttribute="top" constant="109" id="8Zg-t2-Qvo"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="trailing" secondItem="OoP-f0-QTA" secondAttribute="trailing" id="9XX-Jv-npp"/>
+                            <constraint firstItem="TmW-Eb-xz2" firstAttribute="trailing" secondItem="kHA-6Q-S13" secondAttribute="trailing" constant="62" id="Ctd-sD-2B2"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="leading" secondItem="TmW-Eb-xz2" secondAttribute="leading" constant="62" id="NH7-M6-3ot"/>
+                            <constraint firstItem="TmW-Eb-xz2" firstAttribute="bottom" secondItem="ex2-wa-elS" secondAttribute="bottom" constant="182" id="PQY-ml-JTL"/>
+                            <constraint firstItem="OoP-f0-QTA" firstAttribute="top" secondItem="kHA-6Q-S13" secondAttribute="bottom" constant="95" id="Vse-oa-af6"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="leading" secondItem="OoP-f0-QTA" secondAttribute="leading" id="cCr-gb-uK1"/>
+                            <constraint firstItem="OoP-f0-QTA" firstAttribute="top" secondItem="kHA-6Q-S13" secondAttribute="bottom" constant="95" id="qUU-8i-SFo"/>
+                            <constraint firstItem="kHA-6Q-S13" firstAttribute="leading" secondItem="TmW-Eb-xz2" secondAttribute="leading" constant="62" id="wDU-07-S62"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.circle" catalog="system" id="cZP-NP-ccn"/>
+                    <connections>
+                        <outlet property="commentText" destination="OoP-f0-QTA" id="VlZ-Yh-Ly3"/>
+                        <outlet property="imageView" destination="kHA-6Q-S13" id="nqs-Lh-ikE"/>
+                        <outlet property="uploadButton" destination="ex2-wa-elS" id="2sm-2t-pZh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3x-Gn-AZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051" y="289"/>
+            <point key="canvasLocation" x="1050.7246376811595" y="287.94642857142856"/>
         </scene>
         <!--Feed-->
         <scene sceneID="9Xc-R2-RFC">
@@ -166,6 +210,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clickimage" width="202" height="249"/>
         <image name="f.circle" catalog="system" width="128" height="121"/>
         <image name="s.circle" catalog="system" width="128" height="121"/>
         <image name="u.circle" catalog="system" width="128" height="121"/>
