@@ -38,6 +38,15 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
         
     }
     
+    func makeAlert(title : String , message : String){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: title, style: UIAlertAction.Style.default , handler : nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
     
     //what will happen when the user selects image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -57,12 +66,13 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
         let mediaFolder = storageReference.child("media")
         
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            
+            let uuid = UUID().uuidString
  
-            let imageReference = mediaFolder.child("image.jpg")
+            let imageReference = mediaFolder.child("\(uuid).jpeg")
             imageReference.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
-                    
+                    makeAlert(title: "error", message: error?.localizedDescription ?? <#default value#>)
                 }else {
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
