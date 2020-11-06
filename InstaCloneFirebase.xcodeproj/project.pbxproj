@@ -16,6 +16,7 @@
 		04AABE81254ECC950007C9CB /* InstaCloneFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AABE80254ECC950007C9CB /* InstaCloneFirebaseTests.swift */; };
 		04AABE8C254ECC950007C9CB /* InstaCloneFirebaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AABE8B254ECC950007C9CB /* InstaCloneFirebaseUITests.swift */; };
 		04AABE9D254ED8250007C9CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AABE9C254ED8250007C9CB /* GoogleService-Info.plist */; };
+		04D87EF1255596F1006554B8 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D87EF0255596F1006554B8 /* FeedCell.swift */; };
 		04F5F8D1254F688100565C91 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5F8D0254F688100565C91 /* FeedViewController.swift */; };
 		04F5F8D6254F689400565C91 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5F8D5254F689400565C91 /* UploadViewController.swift */; };
 		04F5F8DB254F68A300565C91 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5F8DA254F68A300565C91 /* SettingsViewController.swift */; };
@@ -57,6 +58,7 @@
 		04AABE8B254ECC950007C9CB /* InstaCloneFirebaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaCloneFirebaseUITests.swift; sourceTree = "<group>"; };
 		04AABE8D254ECC950007C9CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AABE9C254ED8250007C9CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04D87EF0255596F1006554B8 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		04F5F8D0254F688100565C91 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		04F5F8D5254F689400565C91 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		04F5F8DA254F68A300565C91 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				04AABE6B254ECC910007C9CB /* SceneDelegate.swift */,
 				04AABE6D254ECC910007C9CB /* ViewController.swift */,
 				04AABE6F254ECC910007C9CB /* Main.storyboard */,
+				04D87EF0255596F1006554B8 /* FeedCell.swift */,
 				04AABE72254ECC940007C9CB /* Assets.xcassets */,
 				04AABE74254ECC940007C9CB /* LaunchScreen.storyboard */,
 				04AABE77254ECC940007C9CB /* Info.plist */,
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D87EF1255596F1006554B8 /* FeedCell.swift in Sources */,
 				04AABE6E254ECC910007C9CB /* ViewController.swift in Sources */,
 				04F5F8D6254F689400565C91 /* UploadViewController.swift in Sources */,
 				04AABE6A254ECC910007C9CB /* AppDelegate.swift in Sources */,
