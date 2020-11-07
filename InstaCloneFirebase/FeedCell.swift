@@ -14,7 +14,6 @@ class FeedCell: UITableViewCell {
     
     @IBOutlet weak var userImageView: UIImageView!
     
-    
     @IBOutlet weak var commentLabel: UILabel!
     
     @IBOutlet weak var likeLabel: UILabel!

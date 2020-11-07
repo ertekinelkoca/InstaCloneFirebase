@@ -7,21 +7,17 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class UploadViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate{
 
-    
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var commentText: UITextField!
-    
     @IBOutlet weak var uploadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
         imageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(chooseImage))
         imageView.addGestureRecognizer(gestureRecognizer)
@@ -29,14 +25,13 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
     
     
     @objc func chooseImage(){
-        
         // this makes imageView selectable
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true, completion: nil)
-        
     }
+    
     
     func makeAlert(title : String , message : String){
         
@@ -45,7 +40,6 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
     }
-
     
     
     //what will happen when the user selects image
@@ -54,13 +48,13 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
     @IBAction func actionButtonClicked(_ sender: Any) {
         
         let storage = Storage.storage()
+        
         //we define below , which folder are we going to use.
         let storageReference = storage.reference()
-        
         
         //child means go to the subfolder by adding child().child()
         let mediaFolder = storageReference.child("media")
@@ -68,7 +62,7 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
             
             let uuid = UUID().uuidString
- 
+            
             let imageReference = mediaFolder.child("\(uuid).jpeg")
             imageReference.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil {
@@ -77,12 +71,10 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
                             let imageURL = url?.absoluteString
-                            
                             print("\(imageURL) aeeee")
                             
                             //DATABASE
                             let firestoreDatabase = Firestore.firestore()
-                            
                             var firestoreReference : DocumentReference? = nil
                             
                             let firestorePost = ["imageURL" : imageURL!, "postedBy" : Auth.auth().currentUser!.email! , "postComment" : self.commentText.text!,"date" : FieldValue.serverTimestamp() ,"likes" : 0] as [String : Any]
@@ -97,9 +89,6 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
                                     self.tabBarController?.selectedIndex = 0 // 0 = feed , 1 = upload etc.
                                 }
                             })
-                            
-                            
-                            
                         }
                     }
                 }
@@ -107,3 +96,4 @@ class UploadViewController: UIViewController , UIImagePickerControllerDelegate ,
         }
     }
 }
+
